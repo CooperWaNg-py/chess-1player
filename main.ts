@@ -7,9 +7,13 @@ namespace SpriteKind {
     export const rook = SpriteKind.create()
 }
 let b_king_1 = sprites.create(assets.image`b_k`, SpriteKind.king)
+b_king_1.setPosition(68, 7)
 let w_king_2 = sprites.create(assets.image`w_k`, SpriteKind.king)
+w_king_2.setPosition(68, 112)
 let b_queen_1 = sprites.create(assets.image`b_q`, SpriteKind.queen)
+b_queen_1.setPosition(53, 7)
 let w_queen_2 = sprites.create(assets.image`w_q`, SpriteKind.queen)
+w_queen_2.setPosition(53, 112)
 let b_bishop_2 = sprites.create(assets.image`b_b`, SpriteKind.bishop)
 let b_bishop_1 = sprites.create(assets.image`b_b`, SpriteKind.bishop)
 let w_bishop_2 = sprites.create(assets.image`w_b`, SpriteKind.bishop)
