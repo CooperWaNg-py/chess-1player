@@ -37,8 +37,4 @@ let w_pawn_5 = sprites.create(assets.image`w_p`, SpriteKind.pawn)
 let w_pawn_4 = sprites.create(assets.image`w_p`, SpriteKind.pawn)
 let w_pawn_2 = sprites.create(assets.image`w_p`, SpriteKind.pawn)
 let w_pawn_1 = sprites.create(assets.image`w_p`, SpriteKind.pawn)
-namespace userconfig {
-    export const ARCADE_SCREEN_WIDTH = 128
-    export const ARCADE_SCREEN_HEIGHT = 128
-}
-tiles.setCurrentTilemap(tilemap`board`)
+scene.setBackgroundImage(assets.image`board`)
