@@ -7,11 +7,9 @@ namespace SpriteKind {
     export const rook = SpriteKind.create()
     export const selector = SpriteKind.create()
 }
-/**
- * 133, 8 top right
- * 
- * 8, 112 bottom left
- */
+// 133, 8 top right
+// 
+// 8, 112 bottom left
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     highlight.y += -15
 })
@@ -65,6 +63,20 @@ function posRook () {
     w_rook_1 = sprites.create(assets.image`w_r`, SpriteKind.rook)
     w_rook_1.setPosition(7, 112)
 }
+function sec2fancyMin (sec: number) {
+    // Handle negative or invalid input
+    if (sec < 0) {
+        return "0:00"
+    }
+    // Calculate minutes and remaining seconds
+    minutes = Math.floor(sec / 60)
+    seconds = Math.floor(sec % 60)
+    let secondsStr = seconds.toString()
+if (seconds < 10) {
+        secondsStr = "0" + secondsStr
+    }
+    return "" + minutes + ":" + secondsStr
+}
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     highlight.x += -15
 })
@@ -100,6 +112,7 @@ function posKing () {
     w_king_2 = sprites.create(assets.image`w_k`, SpriteKind.king)
     w_king_2.setPosition(68, 112)
 }
+let selected: Sprite = null
 let w_king_2: Sprite = null
 let b_king_1: Sprite = null
 let w_bishop_1: Sprite = null
@@ -110,6 +123,8 @@ let w_knight_1: Sprite = null
 let w_knight_2: Sprite = null
 let b_knight_1: Sprite = null
 let b_knight_2: Sprite = null
+let seconds = 0
+let minutes = 0
 let w_rook_1: Sprite = null
 let w_rook_2: Sprite = null
 let b_rook_1: Sprite = null
@@ -151,5 +166,20 @@ game.onUpdate(function () {
         highlight.setPosition(8, highlight.y)
     } else if (highlight.y > 112) {
         highlight.setPosition(highlight.x, 113)
+    }
+    if (highlight.overlapsWith(b_bishop_1) && controller.A.isPressed()) {
+        selected = b_bishop_1
+    } else if (highlight.overlapsWith(b_bishop_2) && controller.A.isPressed()) {
+        selected = b_bishop_2
+    } else if (highlight.overlapsWith(b_king_1) && controller.A.isPressed()) {
+        selected = b_king_1
+    } else if (highlight.overlapsWith(b_knight_1) && controller.A.isPressed()) {
+    	selected = b_knight_1
+    } else if (highlight.overlapsWith(b_knight_2) && controller.A.isPressed()) {
+    	selected = b_knight_2
+    } else if (highlight.overlapsWith(b_pawn_1) && controller.A.isPressed()) {
+    	selected = b_pawn_1
+    } else {
+    	
     }
 })
