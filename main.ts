@@ -68,8 +68,6 @@ function posRook () {
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (selected != null) {
-        // Check for piece selection (black pieces)
-        // Check for piece selection (white pieces)
         if (highlight.overlapsWith(b_bishop_1) && controller.A.isPressed()) {
             destPiece = b_bishop_1
         } else if (highlight.overlapsWith(b_bishop_2) && controller.A.isPressed()) {
@@ -101,7 +99,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         } else if (highlight.overlapsWith(b_rook_1) && controller.A.isPressed()) {
             destPiece = b_rook_1
         } else if (highlight.overlapsWith(b_rook_2) && controller.A.isPressed()) {
-            selected = b_rook_2
+            destPiece = b_rook_2
         } else if (highlight.overlapsWith(w_bishop_1) && controller.A.isPressed()) {
             destPiece = w_bishop_1
         } else if (highlight.overlapsWith(w_bishop_2) && controller.A.isPressed()) {
@@ -129,7 +127,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         } else if (highlight.overlapsWith(w_pawn_8) && controller.A.isPressed()) {
             destPiece = w_pawn_8
         } else if (highlight.overlapsWith(w_queen_2) && controller.A.isPressed()) {
-            highlight = w_queen_2
+            destPiece = w_queen_2
         } else if (highlight.overlapsWith(w_rook_1) && controller.A.isPressed()) {
             destPiece = w_rook_1
         } else if (highlight.overlapsWith(w_rook_2) && controller.A.isPressed()) {
@@ -141,7 +139,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             // Move selected piece to highlight position
             selected.setPosition(highlight.x, highlight.y - 1)
             selected = null
-            destPiece = null
+destPiece = null
         }
     } else {
         // Check for piece selection (black pieces)
@@ -263,7 +261,6 @@ function posKing () {
     w_king_2.setPosition(68, 112)
 }
 let minutes = 0
-let destPiece: Sprite = null
 let w_knight_2: Sprite = null
 let w_knight_1: Sprite = null
 let w_king_2: Sprite = null
@@ -297,6 +294,7 @@ let b_pawn_8: Sprite = null
 let w_queen_2: Sprite = null
 let b_queen_1: Sprite = null
 let highlight: Sprite = null
+let destPiece: Sprite = null
 let seconds = 0
 let selected: Sprite = null
 highlight = sprites.create(assets.image`highlight`, SpriteKind.selector)
