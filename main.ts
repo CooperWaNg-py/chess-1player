@@ -19,6 +19,9 @@ function posQueen () {
     w_queen_2 = sprites.create(assets.image`w_q`, SpriteKind.queen)
     w_queen_2.setPosition(53, 112)
 }
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    selected = null
+})
 function posPawn () {
     b_pawn_8 = sprites.create(assets.image`b_p`, SpriteKind.pawn)
     b_pawn_8.setPosition(7, 22)
@@ -37,19 +40,19 @@ function posPawn () {
     b_pawn_1 = sprites.create(assets.image`b_p`, SpriteKind.pawn)
     b_pawn_1.setPosition(113, 22)
     w_pawn_8 = sprites.create(assets.image`w_p`, SpriteKind.pawn)
-    w_pawn_8.setPosition(7, 97)
+    w_pawn_8.setPosition(8, 97)
     w_pawn_7 = sprites.create(assets.image`w_p`, SpriteKind.pawn)
-    w_pawn_7.setPosition(22, 97)
+    w_pawn_7.setPosition(23, 97)
     w_pawn_6 = sprites.create(assets.image`w_p`, SpriteKind.pawn)
-    w_pawn_6.setPosition(37, 97)
+    w_pawn_6.setPosition(38, 97)
     w_pawn_5 = sprites.create(assets.image`w_p`, SpriteKind.pawn)
     w_pawn_5.setPosition(52, 97)
     w_pawn_4 = sprites.create(assets.image`w_p`, SpriteKind.pawn)
     w_pawn_4.setPosition(67, 97)
     w_pawn_3 = sprites.create(assets.image`w_p`, SpriteKind.pawn)
-    w_pawn_3.setPosition(82, 97)
+    w_pawn_3.setPosition(83, 97)
     w_pawn_2 = sprites.create(assets.image`w_p`, SpriteKind.pawn)
-    w_pawn_2.setPosition(97, 97)
+    w_pawn_2.setPosition(98, 97)
     w_pawn_1 = sprites.create(assets.image`w_p`, SpriteKind.pawn)
     w_pawn_1.setPosition(113, 97)
 }
@@ -63,6 +66,81 @@ function posRook () {
     w_rook_1 = sprites.create(assets.image`w_r`, SpriteKind.rook)
     w_rook_1.setPosition(7, 112)
 }
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (selected != null) {
+        // Move selected piece to highlight position
+        selected.setPosition(highlight.x, highlight.y - 1)
+        selected = null
+    } else {
+        // Check for piece selection (black pieces)
+        // Check for piece selection (white pieces)
+        if (highlight.overlapsWith(b_bishop_1) && controller.A.isPressed()) {
+            selected = b_bishop_1
+        } else if (highlight.overlapsWith(b_bishop_2) && controller.A.isPressed()) {
+            selected = b_bishop_2
+        } else if (highlight.overlapsWith(b_king_1) && controller.A.isPressed()) {
+            selected = b_king_1
+        } else if (highlight.overlapsWith(b_knight_1) && controller.A.isPressed()) {
+            selected = b_knight_1
+        } else if (highlight.overlapsWith(b_knight_2) && controller.A.isPressed()) {
+            selected = b_knight_2
+        } else if (highlight.overlapsWith(b_pawn_1) && controller.A.isPressed()) {
+            selected = b_pawn_1
+        } else if (highlight.overlapsWith(b_pawn_2) && controller.A.isPressed()) {
+            selected = b_pawn_2
+        } else if (highlight.overlapsWith(b_pawn_3) && controller.A.isPressed()) {
+            selected = b_pawn_3
+        } else if (highlight.overlapsWith(b_pawn_4) && controller.A.isPressed()) {
+            selected = b_pawn_4
+        } else if (highlight.overlapsWith(b_pawn_5) && controller.A.isPressed()) {
+            selected = b_pawn_5
+        } else if (highlight.overlapsWith(b_pawn_6) && controller.A.isPressed()) {
+            selected = b_pawn_6
+        } else if (highlight.overlapsWith(b_pawn_7) && controller.A.isPressed()) {
+            selected = b_pawn_7
+        } else if (highlight.overlapsWith(b_pawn_8) && controller.A.isPressed()) {
+            selected = b_pawn_8
+        } else if (highlight.overlapsWith(b_queen_1) && controller.A.isPressed()) {
+            selected = b_queen_1
+        } else if (highlight.overlapsWith(b_rook_1) && controller.A.isPressed()) {
+            selected = b_rook_1
+        } else if (highlight.overlapsWith(b_rook_2) && controller.A.isPressed()) {
+            selected = b_rook_2
+        } else if (highlight.overlapsWith(w_bishop_1) && controller.A.isPressed()) {
+            selected = w_bishop_1
+        } else if (highlight.overlapsWith(w_bishop_2) && controller.A.isPressed()) {
+            selected = w_bishop_2
+        } else if (highlight.overlapsWith(w_king_2) && controller.A.isPressed()) {
+            selected = w_king_2
+        } else if (highlight.overlapsWith(w_knight_1) && controller.A.isPressed()) {
+            selected = w_knight_1
+        } else if (highlight.overlapsWith(w_knight_2) && controller.A.isPressed()) {
+            selected = w_knight_2
+        } else if (highlight.overlapsWith(w_pawn_1) && controller.A.isPressed()) {
+            selected = w_pawn_1
+        } else if (highlight.overlapsWith(w_pawn_2) && controller.A.isPressed()) {
+            selected = w_pawn_2
+        } else if (highlight.overlapsWith(w_pawn_3) && controller.A.isPressed()) {
+            selected = w_pawn_3
+        } else if (highlight.overlapsWith(w_pawn_4) && controller.A.isPressed()) {
+            selected = w_pawn_4
+        } else if (highlight.overlapsWith(w_pawn_5) && controller.A.isPressed()) {
+            selected = w_pawn_5
+        } else if (highlight.overlapsWith(w_pawn_6) && controller.A.isPressed()) {
+            selected = w_pawn_6
+        } else if (highlight.overlapsWith(w_pawn_7) && controller.A.isPressed()) {
+            selected = w_pawn_7
+        } else if (highlight.overlapsWith(w_pawn_8) && controller.A.isPressed()) {
+            selected = w_pawn_8
+        } else if (highlight.overlapsWith(w_queen_2) && controller.A.isPressed()) {
+            selected = w_queen_2
+        } else if (highlight.overlapsWith(w_rook_1) && controller.A.isPressed()) {
+            selected = w_rook_1
+        } else if (highlight.overlapsWith(w_rook_2) && controller.A.isPressed()) {
+            selected = w_rook_2
+        }
+    }
+})
 function sec2fancyMin (sec: number) {
     // Handle negative or invalid input
     if (sec < 0) {
@@ -112,18 +190,17 @@ function posKing () {
     w_king_2 = sprites.create(assets.image`w_k`, SpriteKind.king)
     w_king_2.setPosition(68, 112)
 }
-let selected: Sprite = null
-let w_king_2: Sprite = null
-let b_king_1: Sprite = null
-let w_bishop_1: Sprite = null
-let w_bishop_2: Sprite = null
-let b_bishop_1: Sprite = null
-let b_bishop_2: Sprite = null
-let w_knight_1: Sprite = null
-let w_knight_2: Sprite = null
-let b_knight_1: Sprite = null
-let b_knight_2: Sprite = null
 let minutes = 0
+let w_knight_2: Sprite = null
+let w_knight_1: Sprite = null
+let w_king_2: Sprite = null
+let w_bishop_2: Sprite = null
+let w_bishop_1: Sprite = null
+let b_knight_2: Sprite = null
+let b_knight_1: Sprite = null
+let b_king_1: Sprite = null
+let b_bishop_2: Sprite = null
+let b_bishop_1: Sprite = null
 let w_rook_1: Sprite = null
 let w_rook_2: Sprite = null
 let b_rook_1: Sprite = null
@@ -148,6 +225,7 @@ let w_queen_2: Sprite = null
 let b_queen_1: Sprite = null
 let highlight: Sprite = null
 let seconds = 0
+let selected: Sprite = null
 highlight = sprites.create(assets.image`highlight`, SpriteKind.selector)
 highlight.setPosition(113, 113)
 posPawn()
@@ -167,72 +245,5 @@ game.onUpdate(function () {
         highlight.setPosition(8, highlight.y)
     } else if (highlight.y > 113) {
         highlight.setPosition(highlight.x, 113)
-    }
-    // Check for piece selection (black pieces)
-    // Check for piece selection (white pieces)
-    if (highlight.overlapsWith(b_bishop_1) && controller.A.isPressed()) {
-        selected = b_bishop_1
-    } else if (highlight.overlapsWith(b_bishop_2) && controller.A.isPressed()) {
-        selected = b_bishop_2
-    } else if (highlight.overlapsWith(b_king_1) && controller.A.isPressed()) {
-        selected = b_king_1
-    } else if (highlight.overlapsWith(b_knight_1) && controller.A.isPressed()) {
-        selected = b_knight_1
-    } else if (highlight.overlapsWith(b_knight_2) && controller.A.isPressed()) {
-        selected = b_knight_2
-    } else if (highlight.overlapsWith(b_pawn_1) && controller.A.isPressed()) {
-        selected = b_pawn_1
-    } else if (highlight.overlapsWith(b_pawn_2) && controller.A.isPressed()) {
-        selected = b_pawn_2
-    } else if (highlight.overlapsWith(b_pawn_3) && controller.A.isPressed()) {
-        selected = b_pawn_3
-    } else if (highlight.overlapsWith(b_pawn_4) && controller.A.isPressed()) {
-        selected = b_pawn_4
-    } else if (highlight.overlapsWith(b_pawn_5) && controller.A.isPressed()) {
-        selected = b_pawn_5
-    } else if (highlight.overlapsWith(b_pawn_6) && controller.A.isPressed()) {
-        selected = b_pawn_6
-    } else if (highlight.overlapsWith(b_pawn_7) && controller.A.isPressed()) {
-        selected = b_pawn_7
-    } else if (highlight.overlapsWith(b_pawn_8) && controller.A.isPressed()) {
-        selected = b_pawn_8
-    } else if (highlight.overlapsWith(b_queen_1) && controller.A.isPressed()) {
-        selected = b_queen_1
-    } else if (highlight.overlapsWith(b_rook_1) && controller.A.isPressed()) {
-        selected = b_rook_1
-    } else if (highlight.overlapsWith(b_rook_2) && controller.A.isPressed()) {
-        selected = b_rook_2
-    } else if (highlight.overlapsWith(w_bishop_1) && controller.A.isPressed()) {
-        selected = w_bishop_1
-    } else if (highlight.overlapsWith(w_bishop_2) && controller.A.isPressed()) {
-        selected = w_bishop_2
-    } else if (highlight.overlapsWith(w_king_2) && controller.A.isPressed()) {
-        selected = w_king_2
-    } else if (highlight.overlapsWith(w_knight_1) && controller.A.isPressed()) {
-        selected = w_knight_1
-    } else if (highlight.overlapsWith(w_knight_2) && controller.A.isPressed()) {
-        selected = w_knight_2
-    } else if (highlight.overlapsWith(w_pawn_1) && controller.A.isPressed()) {
-        selected = w_pawn_1
-    } else if (highlight.overlapsWith(w_pawn_2) && controller.A.isPressed()) {
-        selected = w_pawn_2
-    } else if (highlight.overlapsWith(w_pawn_3) && controller.A.isPressed()) {
-        selected = w_pawn_3
-    } else if (highlight.overlapsWith(w_pawn_4) && controller.A.isPressed()) {
-        selected = w_pawn_4
-    } else if (highlight.overlapsWith(w_pawn_5) && controller.A.isPressed()) {
-        selected = w_pawn_5
-    } else if (highlight.overlapsWith(w_pawn_6) && controller.A.isPressed()) {
-        selected = w_pawn_6
-    } else if (highlight.overlapsWith(w_pawn_7) && controller.A.isPressed()) {
-        selected = w_pawn_7
-    } else if (highlight.overlapsWith(w_pawn_8) && controller.A.isPressed()) {
-        selected = w_pawn_8
-    } else if (highlight.overlapsWith(w_queen_2) && controller.A.isPressed()) {
-        selected = w_queen_2
-    } else if (highlight.overlapsWith(w_rook_1) && controller.A.isPressed()) {
-        selected = w_rook_1
-    } else if (highlight.overlapsWith(w_rook_2) && controller.A.isPressed()) {
-        selected = w_rook_2
     }
 })
