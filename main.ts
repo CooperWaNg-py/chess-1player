@@ -68,9 +68,81 @@ function posRook () {
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (selected != null) {
-        // Move selected piece to highlight position
-        selected.setPosition(highlight.x, highlight.y - 1)
-        selected = null
+        // Check for piece selection (black pieces)
+        // Check for piece selection (white pieces)
+        if (highlight.overlapsWith(b_bishop_1) && controller.A.isPressed()) {
+            destPiece = b_bishop_1
+        } else if (highlight.overlapsWith(b_bishop_2) && controller.A.isPressed()) {
+            destPiece = b_bishop_2
+        } else if (highlight.overlapsWith(b_king_1) && controller.A.isPressed()) {
+            destPiece = b_king_1
+        } else if (highlight.overlapsWith(b_knight_1) && controller.A.isPressed()) {
+            destPiece = b_knight_1
+        } else if (highlight.overlapsWith(b_knight_2) && controller.A.isPressed()) {
+            destPiece = b_knight_2
+        } else if (highlight.overlapsWith(b_pawn_1) && controller.A.isPressed()) {
+            destPiece = b_pawn_1
+        } else if (highlight.overlapsWith(b_pawn_2) && controller.A.isPressed()) {
+            destPiece = b_pawn_2
+        } else if (highlight.overlapsWith(b_pawn_3) && controller.A.isPressed()) {
+            destPiece = b_pawn_3
+        } else if (highlight.overlapsWith(b_pawn_4) && controller.A.isPressed()) {
+            destPiece = b_pawn_4
+        } else if (highlight.overlapsWith(b_pawn_5) && controller.A.isPressed()) {
+            destPiece = b_pawn_5
+        } else if (highlight.overlapsWith(b_pawn_6) && controller.A.isPressed()) {
+            destPiece = b_pawn_6
+        } else if (highlight.overlapsWith(b_pawn_7) && controller.A.isPressed()) {
+            destPiece = b_pawn_7
+        } else if (highlight.overlapsWith(b_pawn_8) && controller.A.isPressed()) {
+            destPiece = b_pawn_8
+        } else if (highlight.overlapsWith(b_queen_1) && controller.A.isPressed()) {
+            destPiece = b_queen_1
+        } else if (highlight.overlapsWith(b_rook_1) && controller.A.isPressed()) {
+            destPiece = b_rook_1
+        } else if (highlight.overlapsWith(b_rook_2) && controller.A.isPressed()) {
+            selected = b_rook_2
+        } else if (highlight.overlapsWith(w_bishop_1) && controller.A.isPressed()) {
+            destPiece = w_bishop_1
+        } else if (highlight.overlapsWith(w_bishop_2) && controller.A.isPressed()) {
+            destPiece = w_bishop_2
+        } else if (highlight.overlapsWith(w_king_2) && controller.A.isPressed()) {
+            destPiece = w_king_2
+        } else if (highlight.overlapsWith(w_knight_1) && controller.A.isPressed()) {
+            destPiece = w_knight_1
+        } else if (highlight.overlapsWith(w_knight_2) && controller.A.isPressed()) {
+            destPiece = w_knight_2
+        } else if (highlight.overlapsWith(w_pawn_1) && controller.A.isPressed()) {
+            destPiece = w_pawn_1
+        } else if (highlight.overlapsWith(w_pawn_2) && controller.A.isPressed()) {
+            destPiece = w_pawn_2
+        } else if (highlight.overlapsWith(w_pawn_3) && controller.A.isPressed()) {
+            destPiece = w_pawn_3
+        } else if (highlight.overlapsWith(w_pawn_4) && controller.A.isPressed()) {
+            destPiece = w_pawn_4
+        } else if (highlight.overlapsWith(w_pawn_5) && controller.A.isPressed()) {
+            destPiece = w_pawn_5
+        } else if (highlight.overlapsWith(w_pawn_6) && controller.A.isPressed()) {
+            destPiece = w_pawn_6
+        } else if (highlight.overlapsWith(w_pawn_7) && controller.A.isPressed()) {
+            destPiece = w_pawn_7
+        } else if (highlight.overlapsWith(w_pawn_8) && controller.A.isPressed()) {
+            destPiece = w_pawn_8
+        } else if (highlight.overlapsWith(w_queen_2) && controller.A.isPressed()) {
+            highlight = w_queen_2
+        } else if (highlight.overlapsWith(w_rook_1) && controller.A.isPressed()) {
+            destPiece = w_rook_1
+        } else if (highlight.overlapsWith(w_rook_2) && controller.A.isPressed()) {
+            destPiece = w_rook_2
+        }
+        if (!(destPiece == null)) {
+        	
+        } else {
+            // Move selected piece to highlight position
+            selected.setPosition(highlight.x, highlight.y - 1)
+            selected = null
+            destPiece = null
+        }
     } else {
         // Check for piece selection (black pieces)
         // Check for piece selection (white pieces)
@@ -191,6 +263,7 @@ function posKing () {
     w_king_2.setPosition(68, 112)
 }
 let minutes = 0
+let destPiece: Sprite = null
 let w_knight_2: Sprite = null
 let w_knight_1: Sprite = null
 let w_king_2: Sprite = null
