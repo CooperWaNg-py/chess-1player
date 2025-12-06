@@ -13,7 +13,7 @@ namespace SpriteKind {
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     highlight.y += -15
 })
-function posQueen () {
+function posQueen() {
     b_queen_1 = sprites.create(assets.image`b_q`, SpriteKind.queen)
     sprites.setDataString(b_queen_1, "name", "b_queen_1")
     b_queen_1.setPosition(53, 7)
@@ -24,7 +24,7 @@ function posQueen () {
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     selected = null
 })
-function posPawn () {
+function posPawn() {
     b_pawn_8 = sprites.create(assets.image`b_p`, SpriteKind.pawn)
     sprites.setDataString(b_pawn_8, "name", "b_pawn_8")
     b_pawn_8.setPosition(7, 22)
@@ -74,7 +74,7 @@ function posPawn () {
     sprites.setDataString(w_pawn_1, "name", "w_pawn_1")
     w_pawn_1.setPosition(113, 97)
 }
-function posRook () {
+function posRook() {
     b_rook_2 = sprites.create(assets.image`b_r`, SpriteKind.rook)
     sprites.setDataString(b_rook_2, "name", "b_rook_2")
     b_rook_2.setPosition(7, 7)
@@ -161,27 +161,27 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     sprites.destroy(destPiece)
                     selected.setPosition(highlight.x, highlight.y - 1)
                     destPiece = null
-selected = null
+                    selected = null
                 } else {
                     destPiece = null
-selected = null
+                    selected = null
                 }
             } else {
                 if (sprites.readDataString(destPiece, "name").includes("w_")) {
                     sprites.destroy(destPiece)
                     selected.setPosition(highlight.x, highlight.y - 1)
                     destPiece = null
-selected = null
+                    selected = null
                 } else {
                     destPiece = null
-selected = null
+                    selected = null
                 }
             }
         } else {
             // Move selected piece to highlight position
             selected.setPosition(highlight.x, highlight.y - 1)
             selected = null
-destPiece = null
+            destPiece = null
         }
     } else {
         // Check for piece selection (black pieces)
@@ -253,7 +253,7 @@ destPiece = null
         }
     }
 })
-function sec2fancyMin (sec: number) {
+function sec2fancyMin(sec: number) {
     // Handle negative or invalid input
     if (sec < 0) {
         return "0:00"
@@ -262,7 +262,7 @@ function sec2fancyMin (sec: number) {
     minutes = Math.floor(sec / 60)
     seconds = Math.floor(sec % 60)
     let secondsStr = seconds.toString()
-if (seconds < 10) {
+    if (seconds < 10) {
         secondsStr = "0" + secondsStr
     }
     return "" + minutes + ":" + secondsStr
@@ -270,7 +270,7 @@ if (seconds < 10) {
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     highlight.x += -15
 })
-function posKnight () {
+function posKnight() {
     b_knight_2 = sprites.create(assets.image`b_n`, SpriteKind.knight)
     sprites.setDataString(b_knight_2, "name", "b_knight_2")
     b_knight_2.setPosition(98, 7)
@@ -287,7 +287,7 @@ function posKnight () {
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     highlight.x += 15
 })
-function posBishop () {
+function posBishop() {
     b_bishop_2 = sprites.create(assets.image`b_b`, SpriteKind.bishop)
     sprites.setDataString(b_bishop_2, "name", "b_bishop_2")
     b_bishop_2.setPosition(37, 7)
@@ -304,7 +304,7 @@ function posBishop () {
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     highlight.y += 15
 })
-function posKing () {
+function posKing() {
     b_king_1 = sprites.create(assets.image`b_k`, SpriteKind.king)
     sprites.setDataString(b_king_1, "name", "b_king_1")
     b_king_1.setPosition(68, 7)
@@ -348,10 +348,10 @@ let b_pawn_8: Sprite = null
 let w_queen_2: Sprite = null
 let b_queen_1: Sprite = null
 let highlight: Sprite = null
-let destIsEnemyColour = 0
-let selected: Sprite = null
-let seconds = 0
 let destPiece: Sprite = null
+let seconds = 0
+let selected: Sprite = null
+let destIsEnemyColour = 0
 let version = "v1.024"
 let textSprite = textsprite.create(version)
 textSprite.setPosition(140, 8)
