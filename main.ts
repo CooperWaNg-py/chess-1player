@@ -312,6 +312,8 @@ function posKing () {
     sprites.setDataString(w_king_2, "name", "w_king_2")
     w_king_2.setPosition(68, 112)
 }
+let timetxt: TextSprite = null
+let time = 0
 let minutes = 0
 let w_knight_2: Sprite = null
 let w_knight_1: Sprite = null
@@ -374,4 +376,8 @@ game.onUpdate(function () {
     } else if (highlight.y > 113) {
         highlight.setPosition(highlight.x, 113)
     }
+    time = game.runtime() / 1000
+    sprites.destroy(timetxt)
+    timetxt = textsprite.create(convertToText(sec2fancyMin(Math.round(time))))
+    timetxt.setPosition(140, 17)
 })
